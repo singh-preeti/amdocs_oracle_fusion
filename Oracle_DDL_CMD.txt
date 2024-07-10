@@ -1,0 +1,83 @@
+Create , Drop ,Rename, Alter, Truncate
+
+ALTER – MODIFY
+ALTER – ADD
+ALTER – RENAME
+ALTER – DROP
+
+
+1. CREATE Table  Command
+
+Rules for creating a table in Oracle:
+To create a table in the Oracle database, we must have certain information in hand i.e. the table name, the column name, the column data types, and the column sizes. All this information can be modified later using DDL commands. So, while creating a table in Oracle, we must follow the following rules.
+
+The Table name must begin with a letter A-Z or a-z
+The Table name can contain numbers and underscores
+The name of the table can be in UPPER or lower case
+The maximum length of the table name can be 30 characters
+We cannot use the same name of another existing object in our schema
+The table name must not be a SQL reserved word.
+Don’t provide space in the table name. If you want to provide space in a table name then you can use the underscore symbol.
+A table should contain a minimum of 1 column and a maximum of 1000 columns
+
+CREATE TABLE Employee
+( 
+    Id INT, 
+    Name  CHAR(100), 
+    Salary NUMBER(8, 2) 
+);
+
+Command: Desc Employee
+
+2. ALTER – MODIFY
+
+ALTER TABLE EMPLOYEE MODIFY NAME CHAR(200);
+
+Command: Desc Employee
+
+3. ALTER – ADD
+
+ALTER TABLE EMPLOYEE ADD ADDRESS VARCHAR2(100);
+
+Command: Desc Employee
+
+4. ALTER – RENAME
+
+ALTER TABLE EMPLOYEE RENAME COLUMN ADDRESS TO EMPADDREES;
+
+5. ALTER – DROP
+
+ALTER TABLE EMPLOYEE DROP COLUMN EMPADDREES;
+
+
+
+RENAME DDL Command in Oracle:
+
+1. RENAME EMPLOYEE TO EMPLOYEEDETAILS;
+2. RENAME EMPLOYEEDETAILS TO EMPLOYEE;
+
+TRUNCATE DDL Command in Oracle:
+
+1. TRUNCATE TABLE EMPLOYEE;
+
+ Rules of Truncate:
+It is used to delete all rows from a table at a time.
+It is used for deleting rows but not columns.
+Rows are deleted permanently.
+Cannot delete a specific row from a table.
+It is not supporting the “where” condition.
+The truncate command will delete rows but not the structure of the table.
+
+
+RECYCLEBIN Command in Oracle:
+
+DESC RECYCLEBIN;
+
+Drop Employee;
+
+SELECT OBJECT_NAME, ORIGINAL_NAME, OPERATION, TYPE, TS_NAME FROM RECYCLEBIN;
+
+
+
+FLASHBACK Command in Oracle:The Flashback command is used to restore the dropped table from recycle bin to the database. The syntax to use the Flashback command is given below.
+1. FLASHBACK TABLE EMPLOYEE TO BEFORE DROP;

@@ -1,0 +1,52 @@
+DML Commands
+INSERT 
+UPDATE 
+DELETE 
+
+
+1. CREATE TABLE Employee
+( 
+    Id INT, 
+    Name  CHAR(100), 
+    Salary NUMBER(8, 2) 
+);
+
+2. INSERT INTO EMPLOYEE VALUES (1, ‘Anurag’, 50000);
+
+3. INSERT INTO EMPLOYEE (Id, Salary, Name) VALUES (NULL, NULL, NULL);
+
+4. UPDATE EMPLOYEE SET Name=’Test1′, Salary=55000 WHERE Id=3;
+
+5. UPDATE EMPLOYEE SET Salary=85000 WHERE Name=’Anurag’;
+
+6. DELETE FROM EMPLOYEE WHERE Id=1;
+
+7. DELETE FROM EMPLOYEE;
+
+
+Delete VS Truncate in Oracle:
+Delete                                                             
+It is a DML command
+It can delete a specific row from a table.
+It supports the “WHERE” clause condition.
+It is a temporary data deletion.
+We can restore deleted data by using the “ROLLBACK” command.
+Execution speed is slow as deleting operation is performed row by row / one by one manner.
+Truncate
+It is a DDL command
+It is not possible to delete a specific row from a table.
+It does not support the “WHERE” clause condition.
+It is a permanent data deletion.
+We cannot restore deleted data by using the “ROLLBACK” command.
+Execution speed is fast as deleting a group of rows at a time.
+
+
+8. INSERT ALL
+
+INSERT ALL
+  INTO EMPLOYEE (Id, Salary, Name) VALUES (1, 35000, 'Pranaya')
+  INTO EMPLOYEE (Id, Salary, Name) VALUES (2, 45000, 'Kumar')
+  INTO EMPLOYEE (Id, Salary, Name) VALUES (3, 55000, 'Rout')
+SELECT * FROM dual;
+
+9. MERGE (NEW DML COMMAND)
